@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <title>Setting Up Your Raspberry Pi with NOOBS (Raspbian) - Project Raspberry</title>
+</head>
+<body>
+
+    <div class="navbar" id="navbar">
+        <a href="../index">Home</a>
+        <a href="../tutorials">Tutorials</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+    </div>
+
+
+    <div class="post-head">
+        <h1>Setting Up Your Raspberry Pi with NOOBS (Raspbian)</h1>
+        <p>Setting up a new Pi can seem like a long and daunting process. In this tutorial, you'll learn how to safely and efficiently setup your Raspberry Pi.</p>
+    </div>
+    <div class="post-author">
+        <h3>By Rohan Dharwadker</h3>
+    </div>
+
+    <div class="post-content">
+        
+        
+        
+        <div class="post-subhead">
+            <h1>What you'll need</h1>
+        </div>
+        
+        <h3>Recommended</h3>
+        <p>First of all, I really recommend getting a starter kit that contains all the materials below. (I chose <a href="https://www.amazon.com/Vilros-Raspberry-Complete-Transparent-Cooled/dp/B07VFCB192/ref=sr_1_4?crid=1F3LPR698GOE8&dchild=1&keywords=vilros+raspberry+pi+4&qid=1589226886&sprefix=vilro%2Caps%2C194&sr=8-4">this one</a>, which has NOOBS preloaded)</p>
+        <ul>
+            <li>Raspberry Pi (I will be using the model 4 B)</li>
+            <li>Power Ssupply for Pi (5v USB-C for Pi 4; comes in most starter kits)</li>
+            <li>Display or monitor with HDMI input</li>
+            <li>Appropriate display cable (Micro-HDMI to HDMI for Pi 4 and most monitors)</li>
+            <li>USB keyboard and mouse (Preferable but not required to be connected to the same dongle)</li>
+            <li>Micro SD card with adapter (I recommend at least 32gb, but 16 will work.)</li>
+        </ul>
+        <h3>Optional</h3>
+        <ul>
+            <li>Case for Raspberry Pi</li>
+            <li>A starter kit that contains all the materials above (I chose <a target="_blank" href="https://www.amazon.com/Vilros-Raspberry-Complete-Transparent-Cooled/dp/B07VFCB192/ref=sr_1_4?crid=1F3LPR698GOE8&dchild=1&keywords=vilros+raspberry+pi+4&qid=1589226886&sprefix=vilro%2Caps%2C194&sr=8-4">this one</a>, which is really great because it comes with a micro SD card that is preloaded with NOOBS)  
+            </li>
+        </ul>
+
+
+
+        <div class="post-subhead">
+            <h1>Connecting the Display and the Peripherals</h1>
+        </div>
+        <h4>IMPORTANT! DO NOT POWER ON THE PI YET!</h4>
+        <p>
+            For this tutorial, I'll be using the Raspberry Pi Model 4 B, but you can use a different model with just a few changes. To start, you'll
+            want to plug in your keyboard and mouse. I recommend plugging them into the USB 2.0 ports, so that the 3.0 ports remain availiable for 
+            things like usb flashdrives that can take advantage of the 3.0's faster speed. Next, plug in the the micro HDMI to the 'HDMI 0' port. If 
+            you are running dual monitors, you can plug in to both HDMI ports, but if your are only using one, make sure you plug your cable into the
+            'HDMI 0' port (The one closer to the power port). 
+        </p>
+        <div class="post-img-cont">
+            <img class="post-img" src="../pictures/post-pictures/pi-diagram-hdmi&per.png" />
+        </div>
+
+
+
+        <div class="post-subhead">
+            <h1>Connecting the Ethernet Cable (Not Required)</h1>
+        </div>
+        <p>
+            Next, if you have one, plug in an ethernet cable to the ethernet port (located next to the USB 3.0 ports). This is not required if you have a Raspberry Pi 4 because it has on board
+            Wi-Fi, but it will almost always be faster (although I can confirm that it does indeed work without the ethernet). 
+        </p>
+        <div class="post-img-cont">
+            <img class="post-img" src="../pictures/post-pictures/pi-diagram-ethernet.png" />
+        </div>
+
+
+
+        <div class="post-subhead">
+            <h1>Connecting the Power Source</h1>
+        </div>
+        <p>
+            Before you plug in the power supply, make sure it is not plugged in on the other end, or if you have a switch on your power supply, make sure it is in the 'off' position. Now you can
+            plug in the power supply to the USB-C power port. 
+        </p>
+        <div class="post-img-cont">
+            <img class="post-img" src="../pictures/post-pictures/pi-diagram-power.png" />
+        </div>
+
+
+
+        <div class="post-subhead">
+            <h1>Flashing NOOBS to the Micro SD</h1>
+        </div>
+        <h4>Skip this step if you have an SD card that is preloaded with NOOBS or Raspbian.</h4>
+        <p>If your computer has a micro SD slot, insert the micro sd. If not, insert the micro sd into the adapter and insert the adapter into your computer. If you do not have a brand new micro SD, you'll need to
+            format it so that it is completely cleared. You can do this with a software such as SD Card Formatter. Be sure you select the correct drive, as <span style="font-weight: bold;">once formated, all data 
+            on that drive is unrecoverable.</span> Once the SD card is cleared, you'll need to install NOOBS (New Out Of the Box Software). Head to <a href="https://www.raspberrypi.org/downloads/noobs/">
+            https://www.raspberrypi.org/downloads/noobs/</a> and download it in any format. Once downloaded, extract or unzip the files and place them onto the micro SD. Keep in mind that this may take some time
+            because you are loading an entire operating system onto a micro SD card.
+        </p>
+        <div class="post-img-cont">
+            <img class="post-img" src="../pictures/post-pictures/noobs-installpage.png"/>
+        </div>
+
+
+
+        <div class="post-subhead">
+            <h1>Booting up the Pi</h1>
+        </div>
+        <p>
+            The next thing you'll need to do once you've installed NOOBS onto the micro SD is to install the Raspbian Operating System. Safely eject the micro SD card from your computer and insert it into the micro SD
+            slot located on the bottom of the Pi. It only goes one way, so if it isn't going in, don't force it.
+        </p>
+        <div class="post-img-cont">
+            <img class="post-img" src="../pictures/post-pictures/pi-diagram-bottom-sd.png"/>
+        </div>
+        <p>
+            Now it's finally time to power on the Pi! With all the cables connected and the SD inserted, turn on the power by plugging in the power cable (and clicking the switch, if you have one). The first thing you
+            should see on your display is a rainbow-gradient screen. On the Pi, you should see a solid red and flashing or solid green light. 
+        </p>
+        <div class="post-img-cont">
+            <img class="post-img" src="../pictures/post-pictures/pi-bootscreen.png"/>
+        </div>
+
+
+
+        <div class="post-subhead">
+            <h1>Installing Raspbian & Setup</h1>
+        </div>
+        <p>
+            Once the Pi has booted, you will see the screen below.
+        </p>
+        <div class="post-img-cont">
+            <img class="post-img" src="../pictures/post-pictures/noobs-installscreen.png"/>
+        </div>
+        <p>
+            If you do not have an ethernet plugged in you may not see all the download options, and you will want to click Wi-Fi networks and connect to one with a strong signal. Once you have established an internet
+            connection, click 'Raspbian Full' so that an 'X' appears in the box next to it. Also make sure that the language at the bottom is correct. Once Raspbian Full is selected, click install. The installation
+            process will take about 20 minutes, so be patient and ensure that your Pi does not lose power, as this may result in the corrupting or damaging of the SD card and/or the Pi.
+        </p>
+
+        <div class="post-subhead">
+            <h1>Final Touches</h1>
+        </div>
+        <p>Once the installation has finished, follow the OS directions to complete the final settings.</p>
+        <h3>Congratulations, your Raspberry Pi now has Raspbian installed and is ready to use!</h3>
+    </div>
+    <script type="text/javascript" src="../javascript.js"></script>
+</body>
+</html>
