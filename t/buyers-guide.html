@@ -17,7 +17,7 @@
 
 
     <div class="post-head">
-        <h1>The Raspberry Pi Buyers Guide</h1>
+        <h1>The Raspberry Pi Buyer's Guide</h1>
         <p>There's lots of different models of Raspberry Pis. Use this Buyer's Guide to help you pick the right one.</p>
     </div>
     <div class="post-author">
@@ -29,23 +29,143 @@
         
         
         <div class="post-subhead">
-            <h1>Connecting the Display and the Peripherals</h1>
+            <h1>Introduction</h1>
         </div>
-        <h4>IMPORTANT! DO NOT POWER ON THE PI YET!</h4>
         <p>
-            For this tutorial, I'll be using the Raspberry Pi Model 4 B, but you can use a different model with just a few changes. To start, you'll
-            want to plug in your keyboard and mouse. I recommend plugging them into the USB 2.0 ports, so that the 3.0 ports remain availiable for 
-            things like usb flashdrives that can take advantage of the 3.0's faster speed. Next, plug in the the micro HDMI to the 'HDMI 0' port. If 
-            you are running dual monitors, you can plug in to both HDMI ports, but if your are only using one, make sure you plug your cable into the
-            'HDMI 0' port (The one closer to the power port). 
+            In this post, I'll explain about the different types of Raspberry Pis and which one suits you and your project. We'll also talk about starter kits 
+            and if they're worth it. The first step is to <span style="font-weight: bold;">have a project in mind</span>.
+            Knowing what you want to make is crucial to deciding which Pi to buy.
+        </p>
+
+        <div class="post-subhead">
+            <h1>The Budget Buy: Raspberry Pi Zero W</h1>
+        </div>
+        <h4><a href="https://www.raspberrypi.org/products/raspberry-pi-zero-w/">Raspberry Pi Zero W</a></h4>
+        <p>
+            Money doesn't grow on trees. If you're looking for a cheaper Pi, my best pick is the Raspberry Pi Zero W. Emphasis on the 'W'. The 'W' means it has onboard Wi-Fi and Bluetooth, which may not seem like
+            a huge deal, but the Raspberry Pi Zero doesn't have an ethernet port, which means you'd have to buy a separate USB Wi-Fi dongle, which now takes up your only USB port. So no keyboard/mouse.
+            The Raspberry Pi Zero W is a much smaller, more watered down Pi. It's good for simple or small projects. But beware, there are cutbacks. The most noticable one is RAM. The Raspberry Pi Zero W only comes 
+            with 512MB of RAM, a very small amount compared to other Pis' 1, 2, and 4GB of RAM. This essentially means it won't be nearly as fast as a more expensive Pi. It also doesn't come with GPIO pins, which are
+            extremely necessary if you want to connect anything to the Pi (sensors, buzzers, etc.) Instead, they must be bought separately and soldered on. If you're like me and have no soldering experience, don't panic. 
+            You can buy a Raspberry Pi Zero WH, which comes with pre-soldered pins. 
         </p>
         <div class="post-img-cont">
-            <img class="post-img" src="../pictures/post-pictures/pi-diagram-hdmi&per.png" />
+            <img class="post-img" src="../pictures/post-pictures/pizw-diagram-empty.png" />
         </div>
+        <h3>Pros</h3>
+        <ul>
+            <li>Small - Can fit in small projects that are limited by space</li>
+            <li>Cheap - Availiable for as low as $10</li>
+            <li>Wi-Fi - No ethernet or Wi-Fi dongle needed</li>
+        </ul>
+        <h3>Cons</h3>
+        <ul>
+            <li>Low RAM - Isn't very fast</li>
+            <li>No GPIO Pins - Soldering experience required, or you can buy a Zero WH, which comes whit Pins</li>
+            <li>Only 1 micro USB port - You'll need a converter to regular USB, and a Keyboard and Mouse that connect to the same dongle</li>
+        </ul>
 
 
+
+        <div class="post-subhead">
+            <h1>The Flagship Buy: Raspberry Pi 4</h1>
+        </div>
+        <h4><a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4</a></h4>
+        <p>
+            My personal favorite, the Raspberry Pi 4 is the newest (as of now) Raspberry Pi. It comes loaded with 4 USB Ports,
+            a gigabit ethernet port, dual 4K Monitor Support, on-board Wi-Fi and Bluetooth, and up to 4GB of RAM. This Pi is powerful enough to be
+            your desktop computer, while still maintaining a 40-Pin GPIO header that allows you to connect sensors, buzzers and other great
+            gadgets. The board costs about $35, which is still cheap and an awesome steal for someone who uses their computer casually. Obviously,
+            it's not going to be able to run graphic-intense games, but if you're someone who just browses the internet and needs their computer for
+            its basic functions, this might be the perfect desktop replacement for you.
+        </p>
+        <div class="post-img-cont">
+            <img class="post-img" src="../pictures/post-pictures/pi4-diagram-empty.png" />
+        </div>
+        <h3>Pros</h3>
+        <ul>
+            <li>Full Functionality - 4 USB ports and dual 4k monitor support is about as good as it gets.</li>
+            <li>No extra work - No soldering; GPIO pins are already included</li>
+            <li>Powerful - 4GB of RAM allows it to be a great desktop replacement</li>
+        </ul>
+        <h3>Cons</h3>
+        <ul>
+            <li>Expensive - The 1GB version already sets you back $35</li>
+            <li>Larger - It's not huge, but it's bigger than the Zero.</li>
+        </ul>
+
+
+        <div class="post-subhead">
+            <h1>The Value Buy: Vilros Raspberry Pi 4 Basic Kit</h1>
+        </div>
+        <h4><a href="https://www.amazon.com/Vilros-Raspberry-Basic-Cooled-Case/dp/B07TKFFCF1/ref=sr_1_5?crid=2NQZ5IJ6HM5QW&dchild=1&keywords=vilros%2Braspberry%2Bpi%2B4&qid=1589846120&sprefix=vilros%2B%2Caps%2C408&sr=8-5&th=1">Vilros Raspberry Pi 4 Basic Kit</a></h4>
+        <p>
+            Let's talk about starter kits. Are they worth it? It depends what they have in them. A good starter kit will have a case, a power supply
+            with a switch, and some sort of cooling mechanism. A case is important if your Pi is going to be used in a project where it isn't just
+            going to be sitting on your desk. A power supply with a switch is important to be able to reboot your Pi. You're going to be rebooting your
+            pi a lot, especially if you're running it headless (without a monitor and keyboard/mouse). You don't want to have to unplug it every time, and
+            the switch will make your life so much easier. Finally, and perhaps most importantly, it needs to have a cooling mechanism. A fan will be the most
+            effective, but heat sinks are okay too because they don't make any noise. Here's the thing. Your Pi is going to get hot when its doing anything that
+            is using an internet connection or is graphics-intense. My model 4's CPU temperature reaches up to 45 degrees celsius, even with a fan. The Vilros
+            Raspberry Pi 4 Basic Kit has all of the above and is an absolute steal for $60-85.
+        </p>
+        <div class="post-img-cont">
+            <img class="post-img" src="../pictures/post-pictures/pi4-starterkit.png" />
+        </div>
+        <h3>Pros</h3>
+        <ul>
+            <li>Complete Kit - Contains everything you need to get started using your Raspberry Pi</li>
+            <li>Includes extras - Also includes very helpful extras like a power switch, fan, and case</li>
+        </ul>
+        <h3>Cons</h3>
+        <ul>
+            <li>Expensive - The 4GB version costs about $80</li>
+            <li>Doesn't include Micro SD or HDMI cable, which are necessary for use of the Pi</li>
+        </ul>
+
+
+        <div class="post-subhead">
+            <h1>The All-In Buy: Vilros Raspberry Pi 4 Complete Kit</h1>
+        </div>
+        <h4><a href="https://www.amazon.com/Vilros-Raspberry-Complete-Transparent-Cooled/dp/B07VFCB192/ref=sr_1_4?crid=2NQZ5IJ6HM5QW&dchild=1&keywords=vilros+raspberry+pi+4&qid=1589846958&sprefix=vilros+%2Caps%2C408&sr=8-4">Vilros Raspberry Pi 4 Complete Kit</a></h4>
+        <p>
+            The Vilros Raspberry Pi 4 Complete Kit comes with everything the basic kit comes with, with the addition of a Micro-SD card, preloaded with the
+            NOOBS (Raspbian) operating system, an SD Card/Reader Bundle, and a Micro-HDMI to HDMI connector.
+        </p>
+        <div class="post-img-cont">
+            <img class="post-img" src="../pictures/post-pictures/pi4-completekit.png" />
+        </div>
+        <h3>Pros</h3>
+        <ul>
+            <li>Complete Kit - Contains everything you need to get started using your Raspberry Pi</li>
+            <li>Includes extras - Also includes very helpful extras like a power switch, fan, and case</li>
+            <li>Helpful Add-ons - Includes Micro SD preloaded with NOOBS, so no software install is required</li>
+        </ul>
+        <h3>Cons</h3>
+        <ul>
+            <li>Expensive - The 4GB version costs about $100</li>
+        </ul>
+
+
+
+        <div class="post-subhead">
+            <h1>Summary</h1>
+        </div>
+        <p>
+            Finally it's time to decide what kind of Pi is right for you. If you're looking for an easy setup and don't mind a slightly higher
+            price, one of the starter kits might be for you. If you know what you're doing and want to buy the parts separately, go with just the
+            board. If you're looking for a cheaper, smaller model (and don't mind some soldering), maybe you go with the Zero W or Zero WH. If you're
+            looking for the best, go for the 4. Just remember, in the end, its your decision.
+        </p>     
 
     </div>
+
+    <div class="post-eop">
+        <h1>Got your Pi? Congratulations! Welcome to the Raspberry Family!</h1>
+        <p>Be sure to check out our getting set up tutorial to get started.</p>
+        <a href="pi-setup">Get Started&#8594;</a>
+    </div>
+
     <script type="text/javascript" src="../javascript.js"></script>
 </body>
 </html>

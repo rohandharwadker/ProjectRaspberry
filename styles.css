@@ -74,6 +74,7 @@ html,body{
 
 
 
+
 .home-head{
     background-image:url('pictures/home-bgimg.png');
     background-repeat: no-repeat;
@@ -207,8 +208,8 @@ html,body{
 .post-subhead h1 {
     background-color: #ff0023;
     color:white;
-    width:40%;
-    padding:3px;
+    display: inline-block;
+    padding:5px;
 }
 .post-img-cont{
     text-align: center;
@@ -216,4 +217,15 @@ html,body{
 }
 .post-img{
     width:50%;
+}
+.post-eop{
+  text-align:center;
+  margin:2%;
+}
+.post-eop a{
+  font-size:x-large;
+  font-weight: bold;
+  color:#ff0023;
+  text-decoration: none;
+  border-bottom:3px solid #ff0023;
 }
