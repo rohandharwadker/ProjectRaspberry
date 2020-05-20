@@ -14,7 +14,7 @@ function scrollFunction() {
     logoimg.style.width = "50%";
     logo.style.margin = "0";
   } else {
-    anotlogo.style.margin = "18px 15px 0 0";
+    anotlogo.style.margin = "18px 0 0 0";
     anotlogo.style.borderRadius = "15px";
     logo.style.borderRadius = "15px";
     navbar.style.padding = "10px 0px";
