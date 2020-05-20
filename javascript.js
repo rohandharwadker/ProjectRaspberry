@@ -7,14 +7,14 @@ function scrollFunction() {
   var logoimg = document.getElementById("logoimg");
   var anotlogo = document.querySelector("a.navbar-anotlogo")
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    anotlogo.style.margin = "0 15px 0 0";
+    anotlogo.style.margin = "0";
     anotlogo.style.borderRadius = "0px";
     logo.style.borderRadius = "0px";
     navbar.style.padding = "0";
     logoimg.style.width = "50%";
     logo.style.margin = "0";
   } else {
-    anotlogo.style.margin = "18px 0 0 0";
+    anotlogo.style.margin = "18px 15px 0 0";
     anotlogo.style.borderRadius = "15px";
     logo.style.borderRadius = "15px";
     navbar.style.padding = "10px 0px";
