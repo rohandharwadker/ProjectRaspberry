@@ -11,11 +11,14 @@
 <body>
 
     <div class="navbar" id="navbar">
-        <a href="index">Home</a>
-        <a href="tutorials" class="active">Tutorials</a>
+        <a href="index" id="logo"><img id="logoimg" src="pictures/logo.png"/></a>
+        <a href="tutorials" class="active navbar-anotlogo">Tutorials</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
     </div>
-
+    
+    <div class="tutorials-head">
+        <h1>All Tutorials</h1>
+    </div>
 
     <div class="tutorials-block-container">
 
@@ -29,6 +32,11 @@
             <h1>Setting Up Your Pi</h1>
             <img src="pictures/post-pictures/pi4-diagram-empty.png"/>
             <p>Learn how to safely setup your Pi by Installing Raspbian and NOOBS</p>
+        </div>
+        <div class="tutorials-block" onclick="location.href='t/going-headless'">
+            <h1>Going Headless</h1>
+            <img src="pictures/post-pictures/pi4-diagram-empty.png"/>
+            <p>Learn how to schedule tasks and operate the pi without a display.</p>
         </div>
 
 

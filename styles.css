@@ -25,19 +25,23 @@ html,body{
   position: fixed;
   top: 0;
   width: 100%;
-  transition-property: top;
-  transition-duration: 0.3s;
-  transition-delay: .2s;
+  transition:.2s;
+  padding: 10px 0px;
 }
 
 #navbar a {
   float: left;
   color: white;
   text-align: center;
-  padding: 12px;
   text-decoration: none;
+  transition: .2s;
 }
-
+#navbar .navbar-anotlogo{
+  padding:12px;
+  float: right;
+  margin:18px 15px 0 0;
+  border-radius:15px;
+}
 #navbar a:hover {
   background-color: #00b31b;
 }
@@ -45,32 +49,18 @@ html,body{
   background-color: #ff0023;
   color: white;
 }
+#logo img{
+  width:100%;
+  transition: .2s;
+}
+#logo{
+  padding:1px;
+  margin: 0 0 0 30px;
+}
 
 .navbar .icon {
   display: none;
 }
-@media screen and (max-width: 600px) {
-  .navbar a:not(:first-child) {display: none;}
-  .navbar a.icon {
-    float: right;
-    display: block;
-  }
-}
-@media screen and (max-width: 600px) {
-  .navbar.responsive {position: relative;}
-  .navbar.responsive a.icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .navbar.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-}
-
-
 
 
 
@@ -151,7 +141,10 @@ html,body{
 
 
 
-
+.tutorials-head{
+  text-align:center;
+  margin-top:10%;
+}
 .tutorials-block-container{
   margin:5%;
   text-align: center;
@@ -187,7 +180,7 @@ html,body{
 
 .post-head{
     text-align:center;
-    margin-top:5%;
+    margin-top:10%;
 }
 .post-head h1 {
     font-size: 50px;
