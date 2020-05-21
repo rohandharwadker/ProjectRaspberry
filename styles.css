@@ -65,6 +65,11 @@ html,body{
 
 
 
+
+
+
+
+
 .home-head{
     background-image:url('pictures/home-bgimg.png');
     background-repeat: no-repeat;
@@ -133,6 +138,29 @@ html,body{
   border-bottom:3px solid black;
 }
 
+@media screen and (max-width: 800px){
+  .home-head{
+    padding:10%;
+    padding-top:40%;
+    background:none;
+    background-color:black;
+    box-shadow: none;
+  }
+  .home-head .content {
+    margin:0;
+  }
+  .home-mission,.home-piintro .content {
+    margin:2% 2%;
+  }
+  .home-piintro,.home-piintro-head{
+    margin:2% 0%;
+  }
+  .home-piintro-img{
+    width:80%;
+    border-radius: 10px;
+  }
+}
+
 
 
 
@@ -167,8 +195,23 @@ html,body{
   color:white;
   transition:.2s;
 }
-
-
+@media screen and (max-width: 1250px){
+  .tutorials-head{
+    margin-top:12%;
+  }
+  .tutorials-block{
+    width:40%;
+  }
+}
+@media screen and (max-width: 800px){
+  .tutorials-head{
+    margin-top:30%;
+  }
+  .tutorials-block{
+    width:80%;
+    padding:10%;
+  }
+}
 
 
 
@@ -221,4 +264,23 @@ html,body{
   color:#ff0023;
   text-decoration: none;
   border-bottom:3px solid #ff0023;
+}
+@media screen and (max-width: 800px){
+  .post-head{
+    margin:30% 2% 0%;
+  }
+  .post-content{
+    margin:2% 0;
+    padding:5%;
+    text-align:justify;
+  }
+  .post-subhead{
+    text-align:center;
+  }
+  .post-img{
+    width:100%;
+  }
+  .post-eop{
+    margin:10%;
+  }
 }
