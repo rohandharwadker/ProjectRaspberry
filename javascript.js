@@ -24,7 +24,7 @@ function scrollFunction() {
 }
 
 
-function myFunction() {
+function expand() {
   var x = document.getElementById("navbar");
   if (x.className === "navbar") {
     x.className += " responsive";
@@ -32,3 +32,9 @@ function myFunction() {
     x.className = "navbar";
   }
 }
+
+
+
+// $(function(){
+//   $("#includedContent").load("navbar.html"); 
+// });
