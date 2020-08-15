@@ -22,19 +22,3 @@ function scrollFunction() {
     logo.style.margin = "0px 0px 0px 30px";
   }
 }
-
-
-function expand() {
-  var x = document.getElementById("navbar");
-  if (x.className === "navbar") {
-    x.className += " responsive";
-  } else {
-    x.className = "navbar";
-  }
-}
-
-
-
-// $(function(){
-//   $("#includedContent").load("navbar.html"); 
-// });

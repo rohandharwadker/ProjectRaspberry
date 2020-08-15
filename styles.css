@@ -257,6 +257,10 @@ html,body{
   border: 1px solid #ccc;
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 4px;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
+  white-space: pre-wrap;
 }
 .post-img-cont{
     text-align: center;
