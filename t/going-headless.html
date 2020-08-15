@@ -31,22 +31,73 @@
             <h1>Introduction</h1>
         </div>
         <p>
-            Running a headless pi is extremely important for creating a project that can run independently. Running headless means
-            that the pi is able to run a program and operate successfully without a monitor or keyboard/mouse. Most projects require
-            the Pi to run headless, and to do that, you need to be able to run a program on startup without having a display or peripherals. 
+            Running a headless pi is extremely important for creating a project that can run independently. Running headless means that the pi is able to run a program and operate successfully without a monitor or keyboard/mouse. Most projects require the Pi to run headless, and to do that, you need to be able to run a program on startup without having a display or peripherals.
         </p>
-        <div class="post-img-cont">
-            <img class="post-img" src="../pictures/post-pictures/pizw-diagram-empty.png" />
+        <p style="font-weight:bold">In this tutorial, you'll need to be careful as we'll add an executable script to the boot sequence of your Pi. If your script gets stuck, your Pi will not finish the boot sequence, which could result loss of data stored on your Pi.<p> 
+        <div class="post-subhead">
+            <h1>What you'll need</h1>
+        </div>  
+        <ul>
+            <li>Raspberry Pi (Any Model)</li>
+        </ul>
+        <p>
+            For this project, all you'll need is a Raspberry Pi of any model. This tutorial has no variability between different models.
+        </p>
+        <div class="post-subhead">
+            <h1>Basic Setup</h1>
         </div>
-
+        <p>
+            As always, you'll first need to make sure your Pi and its software are up-to-date by running 
+            <pre class="post-code">sudo apt-get update && sudo apt-get upgrade</pre>
+            Setting up a task with crontab is suprisingly easy to do. The first thing you'll want to do is to write a script to execute. For this tutorial, we'll use a simple python script called count.py.
+            <pre class="post-code">
+# This is a Python script
+count = 0
+for i in range(100):
+    count += 1
+print("The for loop ran "+str(count)+" times.")
+            </pre>
+            For convenience, we'll store it in the default directory.
+            <pre class="post-code">/home/pi/count.py</pre>
+        </p>
+        <div class="post-subhead">
+            <h1>Scheduling the task using Cron</h1>
+        </div>
+        <p>I tried multiple ways to run a task at boot using my Raspberry Pi 4. I found Cron the easiest and simplest to use. In order to schedule our script to run at boot, open the terminal and make sure you're in the home directory.</p>
+        <pre class="post-code">cd /home/pi</pre> 
+        <p>Next you'll need to edit the crontab file.</p>
+        <pre class="post-code">sudo crontab -e</pre>
+        <p>You should see something like this:</p>
+        <pre class="post-code">
+#
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belings to (unless redirected).
+#
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+#
+# For more information see the manual pages of crontab(5) and cron(8)
+#
+# m h  dom on dow   command
+        </pre>
+        <p>Scroll to the bottom and add the following line:<p>
+        <pre class="post-code">@reboot python3 /home/pi/count.py</pre>
+        <p style="font-weight: bold">Extremely Important:</p>
+        <p>If your script runs for a long time or infinitely, you'll need to add an '&' after the line above. Adding this will run the script synchronously with the boot sequence, rather than sequentially.</p>
+        <p>If you need to see the output of your script, add a '>' and then the directory of the text file that the output will be written to.<p>
+        <p>For example:</p>
+        <pre class="post-code">@reboot python3 /home/pi/count.py &</pre>
+        <p>The line above will run <span style="color:#ff0023">count.py</span> synchronously with the boot sequence, and therefore will not cause problems if it gets stuck or runs infinitely.</p>
+        <pre class="post-code">@reboot python3 /home/pi/count.py > /home/pi/log.txt</pre>
+        <p>The line above will run <span style="color:#ff0023">count.py</span> and will write the following in /home/pi/log.txt:</p>
+        <pre class="post-code">The for loop ran 100 times.</pre>
     </div>
 
     <div class="post-eop">
-        <h1>Got your Pi? Congratulations! Welcome to the Raspberry Family!</h1>
-        <p>Be sure to check out our getting set up tutorial to get started.</p>
-        <a href="pi-setup">Get Started&#8594;</a>
+        <h1>Congratulations!</h1>
+        <p>You have now learned how to schedule tasks with crontab.</p>
     </div>
-
     <script type="text/javascript" src="../javascript.js"></script>
 </body>
 </html>
