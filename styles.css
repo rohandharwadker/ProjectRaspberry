@@ -179,21 +179,29 @@ html,body{
 }
 .tutorials-block{
   background-color: #f1f1f1;
-  width:40%;
   margin:1%;
   text-align:center;
-  padding:2%;
-  display: inline-block;
-  transition: transform .2s, background-color .2s;
+  padding:1% 0;
+  transition: background-color .5s;
 }
 .tutorials-block img {
-  width:90%;
+  width:100%;
+}
+.tutorials-block .content-left,.content-right{
+  display:inline-block;
+  vertical-align: middle;
+}
+.tutorials-block .content-left{
+  width:45%;
+  text-align: left;
+  margin-right: 10%;
+}
+.tutorials-block .content-right{
+  width:20%;
 }
 .tutorials-block:hover{
-  transform: scale(1.1);
-  background-color: #ff0023;
-  color:white;
-  transition:.2s;
+  background-color:#ccc;
+  transition: background-color .5s;
 }
 @media screen and (max-width: 1250px){
   .tutorials-head{
@@ -201,6 +209,14 @@ html,body{
   }
   .tutorials-block{
     width:40%;
+    display: inline-block;
+  }
+  .tutorials-block .content-right{
+    display: none;
+  }
+  .tutorials-block .content-left{
+    margin:0;
+    text-align: center;
   }
 }
 @media screen and (max-width: 800px){
