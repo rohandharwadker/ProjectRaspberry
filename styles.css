@@ -138,6 +138,46 @@ html,body{
   border-bottom:3px solid black;
 }
 
+.home-lowcost{
+  margin:0;
+  padding:15% 10%;
+  text-align:center;
+  background-image:url('https://wallenet.github.io/ProjectRaspberry/pictures/post-pictures/pi4-diagram-empty.png');
+  background-position:40%;
+  background-repeat: no-repeat;
+  background-size:150%;
+}
+.home-lowcost .content{
+  background-color: white;
+  width:75%;
+  margin:auto;
+}
+.home-lowcost-left,.home-lowcost-right {
+  display:inline-block;
+  width:40%;
+}
+.home-lowcost-left{
+  vertical-align: middle;
+  font-size: larger;
+}
+.home-lowcost-right{
+  vertical-align: middle;
+}
+.home-lowcost-right a{
+  font-size:x-large;
+  color:black;
+  font-weight: bold;
+}
+@media screen and (max-width:1080px){
+  .home-lowcost-left,.home-lowcost-right {
+    display:block;
+    width:100%;
+ }
+ .home-lowcost .content{
+    width:100%;
+    padding:2% 2% 7%;
+  }
+}
 @media screen and (max-width: 800px){
   .home-head{
     padding:10%;
@@ -158,6 +198,11 @@ html,body{
   .home-piintro-img{
     width:80%;
     border-radius: 10px;
+  }
+}
+@media screen and (max-width:700px){
+  .home-lowcost{
+    background-size:300%;
   }
 }
 
