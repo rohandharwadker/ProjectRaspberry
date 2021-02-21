@@ -262,7 +262,9 @@ html,body{
   }
   .tutorials-block{
     width:40%;
-    display: inline-block;
+  }
+  .tutorials-filter-show{
+    display:inline-block;
   }
   .tutorials-block .content-right{
     display: none;
@@ -285,8 +287,10 @@ html,body{
     width:80%;
     padding:10%;
   }
-  .tutorials-filter-btn{
+  .tutorials-filter-show{
     display:block;
+  }
+  .tutorials-filter-btn{
     width:80%;
     padding:5% 0;
     font-size: medium;
