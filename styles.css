@@ -1,8 +1,8 @@
 /* General */
 html,body{
-    margin:0;
-    padding:0;
-    font-family: 'Noto Sans', sans-serif;
+  margin:0;
+  padding:0;
+  font-family: 'Noto Sans', sans-serif;
 }
 .standard-button{
     border:none;
@@ -173,6 +173,33 @@ html,body{
   text-align:center;
   margin-top:10%;
 }
+.tutorials-filter-container{
+  padding:0;
+  margin:0;
+  text-align: center;
+}
+.tutorials-filter-btn{
+  background-color:#f1f1f1;
+  border: none;
+  margin:auto;
+  padding:1%;
+  transition:background-color .5s;
+}
+.tutorials-filter-btn:hover:not(.tutorials-filter-btn-active){
+  background-color:#ccc;
+  transition:.5s;
+}
+.tutorials-filter-btn-active {
+  background-color:#ff0023;
+  color:white;
+  font-weight: bold;
+}
+.tutorials-filteritem{
+  display: none;
+}
+.tutorials-filter-show{
+  display: block;
+}
 .tutorials-block-container{
   margin:5%;
   text-align: center;
@@ -196,12 +223,38 @@ html,body{
   text-align: left;
   margin-right: 10%;
 }
+.tutorials-block .content-left h1{
+  margin-bottom:0;
+}
+.tutorials-block .content-left p:not(.tutorials-badge){
+  margin-top:0;
+}
 .tutorials-block .content-right{
   width:20%;
 }
 .tutorials-block:hover{
   background-color:#ccc;
   transition: background-color .5s;
+}
+.tutorials-badges{
+  margin:0;
+  padding:0;
+}
+.tutorials-badge{
+  display:none;
+  padding:0 1%;
+  color:white;
+}
+.tutorials-badge-sp{
+  background-color: #000000;
+}
+.tutorials-badge-so{
+  color: #ff0023;
+  background-color:#f1f1f1;
+  border: 1px solid #ff0023;
+}
+.tutorials-badge-sh{
+  background-color: #ff0023;
 }
 @media screen and (max-width: 1250px){
   .tutorials-head{

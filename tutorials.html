@@ -9,7 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Tutorials - Project Raspberry</title>
 </head>
-<body>
+<body onload="
+addBadges('tutorials-badge-sp','tutorials-filteritem-sp');
+addBadges('tutorials-badge-so','tutorials-filteritem-so');
+addBadges('tutorials-badge-sh','tutorials-filteritem-sh');
+tutorialsFilter('all')">
 
     <div class="navbar" id="navbar">
         <a href="index" id="logo"><img id="logoimg" src="pictures/logo.png"/></a>
@@ -17,42 +21,71 @@
     </div>
     
     <div class="tutorials-head">
-        <h1>All Tutorials</h1>
+        <h1 id="tutorials-header">All Tutorials</h1>
     </div>
 
+    <div class="tutorials-filter-container" id="tutorials-filter-container">
+        <p>Filter tutorials by</p>
+        <!-- Must be stacked to prevent extra whitespace -->
+        <button class="tutorials-filter-btn tutorials-filter-btn-active" onclick="tutorialsFilter('all')">Show All</button><button class="tutorials-filter-btn" onclick="tutorialsFilter('tutorials-filteritem-sp')">Setup/Pre-Purchase</button><button class="tutorials-filter-btn" onclick="tutorialsFilter('tutorials-filteritem-so')">Software Only</button><button class="tutorials-filter-btn" onclick="tutorialsFilter('tutorials-filteritem-sh')">Software + Hardware</button>
+    </div>
+    <!-- 
+        sp = Setup/Pre-Purchase
+        so = Software Only
+        sh = Software and Hardware
+     -->
+
     <div class="tutorials-block-container">
-
-
-        <div class="tutorials-block" onclick="location.href='t/buyers-guide'">
-            <div class="content-left">
-                <h1>The Buyer's Guide</h1>
-                <p>Use our buyer's guide find out which Pi is right for you</p>
-            </div>
-            <div class="content-right">
-                <img src="pictures/post-pictures/pizw-diagram-empty.png"/>
-            </div>
-        </div>
-        <div class="tutorials-block" onclick="location.href='t/pi-setup'">
+        <div class="tutorials-block tutorials-filteritem tutorials-filteritem-sp tutorials-filteritem-so" onclick="location.href='t/pi-setup'">
             <div class="content-left">
                 <h1>Setting Up Your Pi</h1>
+                <div class="tutorials-badges">
+                    <p class="tutorials-badge tutorials-badge-sp">Setup/Pre-Purchase</p>
+                    <p class="tutorials-badge tutorials-badge-so">Software Only</p>
+                    <p class="tutorials-badge tutorials-badge-sh">Software + Hardware</p>
+                </div>
                 <p>Learn how to safely setup your Pi by Installing Raspbian and NOOBS</p>
             </div>
             <div class="content-right">
                 <img src="pictures/post-pictures/noobs-installpage.png"/>
             </div>
         </div>
-        <div class="tutorials-block" onclick="location.href='t/going-headless'">
+        <div class="tutorials-block tutorials-filteritem tutorials-filteritem-sp" onclick="location.href='t/buyers-guide'">
+            <div class="content-left">
+                <h1>The Buyer's Guide</h1>
+                <div class="tutorials-badges">
+                    <p class="tutorials-badge tutorials-badge-sp">Setup/Pre-Purchase</p>
+                    <p class="tutorials-badge tutorials-badge-so">Software Only</p>
+                    <p class="tutorials-badge tutorials-badge-sh">Software + Hardware</p>
+                </div>
+                <p>Use our buyer's guide find out which Pi is right for you</p>
+            </div>
+            <div class="content-right">
+                <img src="pictures/post-pictures/pizw-diagram-empty.png"/>
+            </div>
+        </div>
+        <div class="tutorials-block tutorials-filteritem tutorials-filteritem-so" onclick="location.href='t/going-headless'">
             <div class="content-left">
                 <h1>Going Headless</h1>
+                <div class="tutorials-badges">
+                    <p class="tutorials-badge tutorials-badge-sp">Setup/Pre-Purchase</p>
+                    <p class="tutorials-badge tutorials-badge-so">Software Only</p>
+                    <p class="tutorials-badge tutorials-badge-sh">Software + Hardware</p>
+                </div>
                 <p>Learn how to schedule tasks and operate the pi without a display.</p>
             </div>
             <div class="content-right">
                 <img src="pictures/post-pictures/pi4-diagram-empty.png"/>
             </div>
         </div>
-        <div class="tutorials-block" onclick="location.href='t/controlling-an-led-with-a-raspberry-pi'">
+        <div class="tutorials-block tutorials-filteritem tutorials-filteritem-sh" onclick="location.href='t/controlling-an-led-with-a-raspberry-pi'">
             <div class="content-left">
                 <h1>Controlling an LED</h1>
+                <div class="tutorials-badges">
+                    <p class="tutorials-badge tutorials-badge-sp">Setup/Pre-Purchase</p>
+                    <p class="tutorials-badge tutorials-badge-so">Software Only</p>
+                    <p class="tutorials-badge tutorials-badge-sh">Software + Hardware</p>
+                </div>
                 <p>Diving into the world of hardware and electrical engineering</p>
             </div>
             <div class="content-right">
@@ -64,5 +97,6 @@
 
    
     <script type="text/javascript" src="javascript.js"></script>
+    <script type="text/javascript" src="tutorials-filter.js"></script>
 </body>
 </html>
