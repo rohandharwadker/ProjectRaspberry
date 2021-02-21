@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="../pictures/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <title>Using SSH for Remote Access - Project Raspberry</title>
+</head>
+<body>
+
+    <div class="navbar" id="navbar">
+        <a href="../index" id="logo"><img id="logoimg" src="../pictures/logo.png"/></a>
+        <a href="../tutorials" class="active navbar-anotlogo">Tutorials</a>
+    </div>
+
+
+    <div class="post-head">
+        <h1>Using SSH for Remote Access</h1>
+        <p>Learn how to remotely access your Pi from another computer</p>
+    </div>
+    <div class="post-author">
+        <h3>By Rohan Dharwadker</h3>
+    </div>
+
+    <div class="post-content">
+        
+        
+        
+        <div class="post-subhead">
+            <h1>Introduction</h1>
+        </div>
+        <p>
+            In this post, you'll learn how to access your Pi's terminal from another computer. This can be especially 
+            helpful when running headless operations. For more info on headless operation, check out our tutorial 
+            <a href="going-headless.html">here</a>.
+        </p>
+
+
+        <div class="post-subhead">
+            <h1>What You'll Need</h1>
+        </div>
+        <h3>Required</h3>
+        <ul>
+            <li>Raspberry Pi running Raspbian OS</li>
+            <li>A separate computer running Windows, Linux, or MacOS</li>
+            <li>A stable internet connection on both the Pi and the secondary computer</li>
+        </ul>
+        <h3>Knowledge Prerequisites</h3>
+        <ul>
+            <li>Extremely basic understanding of the terminal (both on the Pi and the secondary computer)</li>
+            <li>Basic understading of how to boot up and log in to a Pi</li>
+        </ul>
+
+
+        <div class="post-subhead">
+            <h1>Network Setup</h1>
+        </div>
+        <p>
+            The first step is to connect both the Pi and the secondary computer to the same Wi-Fi network.
+            <span style="font-weight:bold">IMPORTANT: Make sure the you trust the Wi-Fi you are using and that it
+            is secure, as using SSH could potentially expose your data to anyone with access to your network.
+            It is recommended that you use a home network (DO NOT use a public network),
+            and be sure to terminate the session when you are finished.</span>
+        </p>
+
+        <div class="post-subhead">
+        	<h1>Setting up the Pi</h1>
+        </div>
+        <p>Next we'll need to actually enable SSH on the Pi.</p>
+        <p>With the Pi booted and connected to Wi-Fi, open a new terminal window and enter the following command:</p>
+        <pre class="post-code">sudo raspi-config</pre>
+		<p>Upon hitting 'Enter', the window should change to a screen that looks something like this:</p>
+		<div class="post-img-cont">
+			<img class="post-img" src="../pictures/post-pictures/using-ssh-for-remote-access/raspi-config-homescreen.png"/>
+		</div>
+        <p>Scroll down and select 'Interface Options' then scroll again and select 'SSH'.</p>
+        <div class="post-img-cont">
+			<img class="post-img" src="../pictures/post-pictures/using-ssh-for-remote-access/raspi-config-interfaceoptions.png"/>
+		</div>
+        <p>Select 'Yes'</p>
+        <div class="post-img-cont">
+			<img class="post-img" src="../pictures/post-pictures/using-ssh-for-remote-access/raspi-config-ssh.png"/>
+		</div>
+        <p>Once you get a message that the SSH is enabled, click 'OK' and 'Finish' and you should be returned to the original terminal.</p>
+
+        <div class="post-subhead">
+            <h1>Getting the Pi's IP</h1>
+        </div>
+        <p>Now that SSH is enabled, all we need to do is access it. But to do that we need the Pi's IP address.</p>
+        <p>If you don't already know the IP address of your Pi, open a terminal window (the one from earlier is fine)
+            and type the command:
+        </p>
+        <pre class="post-code">hostname -I</pre>
+        <p>This should return a long string of numbers. The first group is the IP address. It should be something
+            like this format:</p>
+        <pre class="post-code">123.456.7.890</pre>
+        <p>Save this number, but <span style="font-weight: bold;">don't give anyone else access to it as this could seriously compromise the integrity of 
+            any data on your computer or the Pi.</span>
+        </p>
+
+        <div class="post-subhead">
+            <h1>Accessing the Pi</h1>
+        </div>
+        <p>Now, on the secondary computer, connect to the same Wi-Fi as the Pi and open a new terminal window.
+            In the terminal enter the following command:
+        </p>
+        <pre class="post-code">ssh pi@IP_ADDRESS</pre>
+        <p>Obviously, you'll need to replace IP_ADDRESS with the number from earlier.</p>
+        <p>After hitting 'Enter', you may need to type 'yes' to agree to safety warnings, enter your password,
+            and finally you should see the Pi terminal appear:</p>
+        <div class="post-img-cont">
+            <img class="post-img" src="../pictures/post-pictures/using-ssh-for-remote-access/windows-ssh-to-pi.png"/>
+        </div>
+        <p>If you get a 'Connection timed out' error, you most likely entered the IP address wrong or are not connected
+            to the same network as the Pi.
+        </p>
+
+        <div class="post-subhead">
+            <h1>Conclusion</h1>
+        </div>
+        <p>
+            You should now be able to access the Pi's terminal from another computer. This can be very useful when doing
+            things like running headless tasks, remote shutdown, etc. Remember to excersize caution when using SSH, as
+            it essentially exposes the Pi to your network. Thus, anyone with your network credentials could access it. Avoid
+            using SSH on unsecured or public networks.
+        </p>
+    </div>
+    <div class="post-eop">
+        <h1>Congratulations! You have learned how to access your Pi remotely!</h1>
+        <p>Be sure to check out our other tutorials to learn more cool stuff!</p>
+        <a href="../tutorials">Back to 'All Tutorials'&#8594;</a>
+    </div>
+
+    <script type="text/javascript" src="../javascript.js"></script>
+</body>
+</html>
