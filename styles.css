@@ -269,6 +269,10 @@ html,body{
 .post-img{
     width:50%;
 }
+.post-img-multiple{
+  width:45%;
+  display:inline-block;
+}
 .post-eop{
   text-align:center;
   margin:2%;

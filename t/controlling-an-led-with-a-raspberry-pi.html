@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="../pictures/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <title>Controlling an LED with a Raspberry Pi - Project Raspberry</title>
+</head>
+<body>
+
+    <div class="navbar" id="navbar">
+        <a href="../index" id="logo"><img id="logoimg" src="../pictures/logo.png"/></a>
+        <a href="../tutorials" class="active navbar-anotlogo">Tutorials</a>
+    </div>
+
+
+    <div class="post-head">
+        <h1>Controlling an LED with a Raspberry Pi</h1>
+        <p>Diving into the world of hardware and electrical engineering</p>
+    </div>
+    <div class="post-author">
+        <h3>By Rohan Dharwadker</h3>
+    </div>
+
+    <div class="post-content">
+        
+        
+        
+        <div class="post-subhead">
+            <h1>Introduction</h1>
+        </div>
+        <p>
+            In this post, I'll walk you through turning on and off an LED with a Raspberry Pi using an incredibly simple python script. No prior knowledge of Python or electrical engineering basics is required, but you'll need to have a fully functional Raspberry Pi running Raspbian OS. You can check out our tutorial on how to setup a Raspberry Pi <a target="none" href="pi-setup">here</a>.
+        </p>
+
+
+        <div class="post-subhead">
+            <h1>What you'll need</h1>
+        </div>
+        <h3>Required</h3>
+        <ul>
+            <li>Raspberry Pi running Raspbian OS</li>
+            <li>Power Supply for Pi (5v USB-C for Pi 4; comes in most starter kits)</li>
+            <li>Display or monitor with HDMI input</li>
+            <li>Appropriate display cable (Micro-HDMI to HDMI for Pi 4 and most monitors)</li>
+            <li>USB keyboard and mouse (Preferable but not required to be connected to the same dongle)</li>
+    		<li>Some LEDs like <a href="https://www.amazon.com/eBoot-Pieces-Emitting-Diodes-Assorted/dp/B06XPV4CSH/">these</a></li>
+    		<li>A 100&Omega; Resistor</li>
+    		<li>2 male to female header cables</li>
+    		<li>A solderless breadboard</li>
+        </ul>
+        <h3>Optional</h3>
+        <ul>
+            <li>A button to turn on and off LEDs (<a href="https://www.amazon.com/QTEATAK-Momentary-Tactile-Button-Switch/dp/B07VSNN9S2/">Amazon Link</a>)</li>
+            <li>2 additional male to female header cables (for button)</li>
+        </ul>
+
+
+        <div class="post-subhead">
+            <h1>Hardware Setup</h1>
+        </div>
+        <p>
+            <span style="font-weight:bold">IMPORTANT: Do not plug in the Pi during this step. Doing so may damage the Pi and/or the LEDs!</span> The first step is to plug all the components into the breadboard. Plug the LED in on the end of the breadboard with the positive lead (the longer one) closer to the center of the breadboard (Image 1). Now insert the resistor to resist the current to the positive lead (Image 2). Next, insert the two header cables, one to the negative lead and one to the positive (Image 3). Be sure to use different color header cables as one is the ground wire and one is the positive wire. Plug the positive wire into GPIO Pin 21 (Pin 40) on the (unplugged) Raspberry Pi. Next plug the ground wire to the any ground pin on the pi (Image 4). The pin directly next to GPIO 21 (Pin 39) is a ground pin. 
+        </p>
+        <div class="post-img-cont">
+            <img class="post-img-multiple" src="../pictures/post-pictures/controlling-an-led-with-a-raspberry-pi/hardwaresetup-1.jpg" />
+            <img class="post-img-multiple" src="../pictures/post-pictures/controlling-an-led-with-a-raspberry-pi/hardwaresetup-2.jpg" />
+            <img class="post-img-multiple" src="../pictures/post-pictures/controlling-an-led-with-a-raspberry-pi/hardwaresetup-3.jpg" />
+            <img class="post-img-multiple" src="../pictures/post-pictures/controlling-an-led-with-a-raspberry-pi/hardwaresetup-4.jpg" />
+            <img class="post-img" style="width:90%" src="https://www.raspberrypi.org/documentation/usage/gpio/images/GPIO-Pinout-Diagram-2.png"/>
+        </div>
+
+
+        <div class="post-subhead">
+        	<h1>Writing the Script</h1>
+        </div>
+        <p>
+        	Now it's finally time to plug in the Pi and start writing code.
+        </p>
+        <p>
+        	Once your Pi is fully booted up, create a new Python file and name it 'ledcontroller.py'.
+        	Place it in the home directory (/home/pi/) for easy access. You can always move it later to keep this directory clean. Open this newly created file in any editor you like. It should be noted that I will be using Python 3, so if you are using Python 2 you will need to change some minor syntax details. To get your version of Python, open a terminal window and type 'python'. Type 'quit()' or close the terminal to exit this command. If you get a version of Python 2.*, try also typing 'python3'.
+        </p>
+        <p>
+        	In the newly created 'ledcontroller.py', we'll first need to import the necessary modules, which are gpiozero and time. Both of these should come pre-installed with Python 2 and 3, and thus no installation should be necessary. At the top of the empty file, insert the following: 
+        </p>
+        <pre class="post-code">
+import time
+from gpiozero import LED</pre>
+		<p>
+			Next we need to create an LED object using the gpiozero library, and assign it to GPIO 21, the GPIO pin we plugged the LED into. If you used a different pin, just type its gpio number in place of 21. Remember to type the GPIO Number, not the pin number. For example GPIO 21 is pin number 40.
+		</p>
+		<pre class="post-code">
+led = LED(21)</pre>
+		<p>
+			Finally we need to turn the LED on and off. In this example we will turn it on, leave it on for one second, and then turn it off. We can use the 'time' class to create this delay. The LED object has built in functions to turn the LED on and off. The code below will turn the LED on for 1 second.
+		</p>
+		<pre class="post-code">
+led.on()
+time.sleep(1)
+led.off()</pre>
+		
+
+		<div class="post-subhead">
+			<h1>Adding the Button</h1>
+		</div>
+		<p>An LED that turns on once is great, but what if you want to control how long it stays on? Or when it turns on? This is where adding a button comes in handy.</p>
+		<p>
+			Unlike LEDs, buttons can be directly wired to the Pi without a resistor. Plug the button into the breadboard, making sure to use 2 pins that are on one side of the button and aligning the button vertically on the breadboard. Wire the button to GPIO 20, and the ground to any ground pin on the GPIO header. The button acts as a switch and therefore <span style="font-weight: bold">it does not matter which side you put the positive and negative wires on</span>.
+		</p>
+		<div class="post-img-cont">
+			<img class="post-img" src="../pictures/post-pictures/controlling-an-led-with-a-raspberry-pi/hardwaresetup-5.jpg"/>
+		</div>
+
+
+		<div class="post-subhead">
+			<h1>Modifying the Script</h1>
+		</div>
+		<p>Obviously we're going to need to add some additional code to account for the button. For starters we'll need to import 'Button' from the gpiozero library. Modify your previous import so that you also import the 'Button' class:</p>
+		<pre class="post-code">
+from gpiozero import LED, Button</pre>
+		<p>You'll also need to assign the button as you did the LED. This time it is on GPIO 20.</p>
+		<pre class="post-code">
+button = Button(20)</pre>
+		<p>Next we'll need to write a function to turn on and off the LED. We'll also need to create a variable that stores wether the LED is on or off and then make it available in the function.</p>
+		<pre class="post-code">
+ledon = False
+def changeLED():
+  global ledon
+  ledon = not ledon
+  if (ledon):
+    led.on()
+  else:
+    led.off()</pre>
+    	<p>Finally we need to assign the button press to the function. Place the following code after the function but before you turn the LED on for the first time. You should also add a blank input statement so that the code continues to run until you press enter.</p>
+    	<pre class="post-code">
+button.when_pressed = changeLED</pre>
+    	<p>Here is the full file:</p>
+    	<pre class="post-code">
+import time
+from gpiozero import LED, Button
+
+led = LED(21)
+button = Button(20)
+
+ledon = False
+def changeLED():
+  global ledon
+  ledon = not ledon
+  if (ledon):
+    led.on()
+  else:
+    led.off()
+
+button.when_pressed = changeLED 
+
+led.on()
+time.sleep(1)
+led.off()
+
+blank = input("")
+    	</pre>
+
+
+    </div>
+
+    <script type="text/javascript" src="../javascript.js"></script>
+</body>
+</html>
