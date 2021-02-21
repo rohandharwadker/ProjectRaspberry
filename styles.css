@@ -270,15 +270,26 @@ html,body{
   .tutorials-block .content-left{
     margin:0;
     text-align: center;
+    width:100%;
+  }
+  .tutorials-filter-btn{
+    display:block;
+    width:50%;
   }
 }
-@media screen and (max-width: 800px){
+@media screen and (max-width: 900px){
   .tutorials-head{
     margin-top:30%;
   }
   .tutorials-block{
     width:80%;
     padding:10%;
+  }
+  .tutorials-filter-btn{
+    display:block;
+    width:80%;
+    padding:5% 0;
+    font-size: medium;
   }
 }
 
