@@ -3,22 +3,30 @@ window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
   var navbar = document.getElementById("navbar");
-  var logo = document.getElementById("logo")
+  var logo = document.getElementById("logo");
   var logoimg = document.getElementById("logoimg");
-  var anotlogo = document.querySelector("a.navbar-anotlogo")
+  var anotlogos = document.querySelectorAll("a.navbar-anotlogo");
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    anotlogo.style.margin = "0";
-    anotlogo.style.borderRadius = "0px";
+    anotlogos.forEach(anotlogo => {
+      anotlogo.style.borderRadius = "0px";
+      anotlogo.style.margin = "0";
+    });
     logo.style.borderRadius = "0px";
+    logo.style.width ="5%";
     navbar.style.padding = "0";
     logoimg.style.width = "50%";
     logo.style.margin = "0";
+    logoimg.src = "pictures/logo.png";
   } else {
-    anotlogo.style.margin = "18px 15px 0 0";
-    anotlogo.style.borderRadius = "15px";
+    anotlogos.forEach(anotlogo => {
+      anotlogo.style.borderRadius = "15px";
+      anotlogo.style.margin = "0 30px 0 0";
+    });
     logo.style.borderRadius = "15px";
+    logo.style.width="15%";
     navbar.style.padding = "10px 0px";
     logoimg.style.width = "100%";
-    logo.style.margin = "0px 0px 0px 30px";
+    logo.style.margin = "0 0 0 30px";
+    logoimg.src = "pictures/logo-large.png";
   }
 }
