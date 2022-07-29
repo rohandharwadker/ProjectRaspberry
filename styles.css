@@ -89,10 +89,10 @@ html,body{
     margin-left:30%;
     margin-right:30%;
 }
-.home-tutorialad{
+.home-latesttutorial{
     background-color:#00b31b;
     color:white;
-    padding:1%;
+    padding:1% 1% 2%;
     text-align:center;
 }
 .home-mission{
@@ -149,12 +149,13 @@ html,body{
 }
 .home-lowcost .content{
   background-color: white;
-  width:75%;
+  width:100%;
   margin:auto;
 }
 .home-lowcost-left,.home-lowcost-right {
   display:inline-block;
-  width:40%;
+  width:35%;
+  margin: 5%;
 }
 .home-lowcost-left{
   vertical-align: middle;
